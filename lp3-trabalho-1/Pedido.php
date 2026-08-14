@@ -13,10 +13,9 @@ class Pedido
     private Vendedor $vendedor;
     private float $valorTotal;
 
-    public function __construct(Cliente $cliente, Vendedor $vendedor, ItemPedido $itemPedido){
-        
+    public function __construct(Cliente $cliente, Vendedor $vendedor, Produto $produto, int $quantidade, float $valor){
         $this->data = new Data((int)date("d"), (int)date("m"), (int)date("Y"));
-        $this->listaItens[] = $itemPedido;
+        $this->listaItens[] = new ItemPedido($produto, $quantidade, $valor);
         $this->cliente = $cliente;
         $this->vendedor = $vendedor;
         $this->valorTotal = $this->calcularValorTotal();
@@ -24,7 +23,7 @@ class Pedido
 
     public function adicionarItem(Produto $item, int $quantidade, float $valor){
         
-        $novoItem = new ItemPedido($item, $quantidade);
+        $novoItem = new ItemPedido($item, $quantidade, $valor);
         $this->listaItens[] = $novoItem;
         $this->valorTotal = $this->calcularValorTotal();
     }
@@ -47,10 +46,17 @@ class Pedido
     }
 
     public function imprimirPedidoCompleto(){
+
+        echo "Data do pedido: " . $this->data . "<br>";
+        echo "Cliente: " . $this->cliente->getNome() . "<br>";
+        echo "Vendedor: " . $this->vendedor->getNome() . "<br>";
+
+        echo "Pedido: " . "<br>";
+
         foreach($this->listaItens as $item){
             echo $item->getItem()->getNome() . "<br>";
             echo $item->getQuantidade() . "<br>";
-            echo $item->getValor() . "<br>";
+            echo $item->getValor() . "<br><br>";
         }
     }
 

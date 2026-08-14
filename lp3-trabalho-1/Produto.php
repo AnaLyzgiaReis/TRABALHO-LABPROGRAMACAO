@@ -15,7 +15,7 @@ class Produto{
     public function imprimir(){
         echo $this->codigo . "<br>";
         echo $this->nome . "<br>";
-        echo $this->valor . "<br>";
+        echo $this->valor . "<br><br>";
     }
     
 

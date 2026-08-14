@@ -35,7 +35,7 @@ class Vendedor extends Pessoa
         echo $this->getSexo() . "<br>";
         echo $this->getDataNasc() . "<br>";
         echo $this->getSalario() . "<br>";
-        echo $this->getComissao() . "<br>";
+        echo $this->getComissao() . "<br><br>";
     }
 }
 ?>

@@ -4,11 +4,12 @@ class Cliente extends Pessoa
 {
     private Data $dataCadastro;
     private string $preferencias;
-    public function __construct(string $nome, string $cpf, string $sexo, int $dia, int $mes, int $ano)
+    public function __construct(string $nome, string $cpf, string $sexo, int $dia, int $mes, int $ano, string $preferencias)
     {
         parent::__construct($nome, $cpf, $sexo, $dia, $mes, $ano);
         $this->dataCadastro = new Data((int)date("d"), (int)date("m"), (int)date("Y"));
-        $this->preferencias = "";
+        $this->preferencias = $preferencias;
+        
     }
     public function getDataCadastro()
     {
@@ -35,7 +36,7 @@ class Cliente extends Pessoa
         echo $this->getSexo() . "<br>";
         echo $this->getDataNasc() . "<br>";
         echo $this->getDataCadastro() . "<br>";
-        echo $this->getPreferencias() . "<br>";
+        echo $this->getPreferencias() . "<br><br>";
     }
 }
 ?>

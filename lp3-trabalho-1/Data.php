@@ -19,7 +19,43 @@ class Data
     }
 
     public function imprimirDataBanco(){
-        echo $this->dia . "/" . $this->mes . "/" . $this->ano;
+        echo $this->dia . "/" . $this->mes . "/" . $this->ano . "<br><br>";
 
+    }
+
+    public function getDia()
+    {
+        return $this->dia;
+    }
+
+    public function setDia(int $dia)
+    {
+        $this->dia = $dia;
+
+        return $this;
+    }
+
+    public function getMes()
+    {
+        return $this->mes;
+    }
+
+    public function setMes(int $mes)
+    {
+        $this->mes = $mes;
+
+        return $this;
+    }
+
+    public function getAno()
+    {
+        return $this->ano;
+    }
+ 
+    public function setAno(int $ano)
+    {
+        $this->ano = $ano;
+
+        return $this;
     }
 }

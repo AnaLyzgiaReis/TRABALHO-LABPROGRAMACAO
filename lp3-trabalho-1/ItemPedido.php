@@ -9,11 +9,11 @@ class ItemPedido
         private int $quantidade;
         private float $valor;
 
-    public function __construct(Produto $produto, int $quantidade)
+    public function __construct(Produto $produto, int $quantidade, float $valor)
     {
         $this->item = $produto;
         $this->quantidade = $quantidade;
-        $this->valor = $produto->getValor();
+        $this->valor = $valor;
         
     }
 
